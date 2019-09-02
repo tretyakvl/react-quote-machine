@@ -1,0 +1,23 @@
+{
+  "name": "quote-machine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "npx babel --watch src --out-dir . --presets react-app/prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "standard": "^14.1.0"
+  },
+  "standard": {
+    "env": "browser"
+  },
+  "dependencies": {
+    "react": "^16.9.0"
+  }
+}
