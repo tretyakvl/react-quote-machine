@@ -4,18 +4,21 @@ class QuoteBox extends React.Component {
     super(props)
     this.state = {
       text: '',
-      author: ''
+      author: '',
+      twitUrl: ''
     }
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick () {
+    setBgColor()
     fetch('https://api.quotable.io/random')
       .then(response => response.json())
       .then(data => {
         this.setState({
           text: data.content,
-          author: data.author
+          author: data.author,
+          twitUrl: getTwitUrl(`"${data.content}" -${data.author}`)
         })
       })
   }
@@ -28,7 +31,7 @@ class QuoteBox extends React.Component {
         <Text text={this.state.text} />
         <Author author={this.state.author} />
         <div className='container'>
-          <TweetQuote />
+          <TweetQuote href={this.state.twitUrl} />
           <NewQuote onClick={this.handleClick} />
         </div>
       </div>
@@ -55,7 +58,7 @@ class Author extends React.Component {
 class TweetQuote extends React.Component {
   render () {
     return (
-      <a>
+      <a href={this.props.href} target='_blank' rel='noopener noreferrer'>
         <svg width='24' height='20'>
           <use xlinkHref='sprite.svg#twitter-icon' />
         </svg>
@@ -73,3 +76,23 @@ class NewQuote extends React.Component {
 }
 
 ReactDOM.render(<QuoteBox />, document.getElementById('root'))
+
+function setBgColor () {
+  const COLORS = '#fc7a57, #69b578, #f0a202, #2e5339'.split(', ')
+  const prevColor = getComputedStyle(document.documentElement).getPropertyValue('--main')
+  let newColor = getRandomElement(COLORS)
+
+  while (prevColor === newColor) newColor = getRandomElement(COLORS)
+
+  document.documentElement.style.setProperty('--main', newColor)
+}
+
+function getRandomElement (arr) {
+  return arr[Math.floor(Math.random() * arr.length)]
+}
+
+function getTwitUrl (string) {
+  const encodedString = encodeURIComponent(string)
+
+  return `https://twitter.com/intent/tweet?text=${encodedString}&hashtags=quotes`
+}
