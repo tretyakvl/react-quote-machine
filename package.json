@@ -9,15 +9,23 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "react": "^16.9.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2",
     "standard": "^14.1.0"
   },
   "standard": {
-    "env": "browser"
-  },
-  "dependencies": {
-    "react": "^16.9.0"
+    "env": [
+      "es6",
+      "browser"
+    ],
+    "globals": [
+      "React",
+      "ReactDOM"
+    ],
+    "ignore": ["index.js"]
   }
 }
