@@ -1,5 +1,6 @@
 :root {
   --main: hsla(197, 100%, 45%, 1);
+  font-size: calc(0.5em + 1vw);
 }
 
 body {
@@ -21,7 +22,8 @@ body {
 
 #quote-box {
   max-width: 40em;
-  padding: 2em 3em;
+  margin: 0 1em;
+  padding: 2em;
 
   border-radius: 2em;
   background-color: hsl(0, 0%, 98%);
@@ -53,7 +55,7 @@ body {
   align-items: center;
 }
 
-.container a {
+#tweet-quote {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,17 +72,17 @@ body {
               opacity 100ms ease-out;
   cursor: pointer;
 }
-.container a:hover,
-.container a:active {
+#tweet-quote:hover,
+#tweet-quote:active {
   opacity: 0.8;
 }
 
-.container a svg {
+#tweet-quote svg {
   width: 60%;
   height: auto;
 }
 
-.container button {
+#new-quote {
   margin-left: auto;
   padding: 0 1em;
 
@@ -98,7 +100,7 @@ body {
   cursor: pointer;
 }
 
-.container button:hover,
-.container button:active {
+#new-quote:hover,
+#new-quote:active {
   opacity: 0.8;
 }

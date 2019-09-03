@@ -58,7 +58,7 @@ class Author extends React.Component {
 class TweetQuote extends React.Component {
   render () {
     return (
-      <a href={this.props.href} target='_blank' rel='noopener noreferrer'>
+      <a id='tweet-quote' href={this.props.href} target='_blank' rel='noopener noreferrer'>
         <svg width='24' height='20'>
           <use xlinkHref='sprite.svg#twitter-icon' />
         </svg>
@@ -70,7 +70,7 @@ class TweetQuote extends React.Component {
 class NewQuote extends React.Component {
   render () {
     return (
-      <button onClick={this.props.onClick}>New quote</button>
+      <button id='new-quote' onClick={this.props.onClick}>New quote</button>
     )
   }
 }
