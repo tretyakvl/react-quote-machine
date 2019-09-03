@@ -26,6 +26,8 @@
       "React",
       "ReactDOM"
     ],
-    "ignore": ["index.js"]
+    "ignore": [
+      "index.js"
+    ]
   }
 }
